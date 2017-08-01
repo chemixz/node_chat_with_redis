@@ -1,0 +1,44 @@
+extends ../layout_dashboard.pug
+block contenido
+  div(class="row")
+    center
+      h1 Imagenes
+    a(href=mainRoute+"/images/new" , class="btn btn-success") Nueva Imagen
+    center
+        table(class="table table=stripped")
+          thead
+            tr
+              th(class="col-xs-1") Img
+              th(class="col-xs-1") User
+              th(class="col-xs-1") Titulo
+              th(class="col-xs-1") Acciones
+          tbody(id="images")
+            each img in images
+              tr
+                td 
+                  img(src="/images/"+img.id+"."+img.extension, title=""+img.title , class="thumbnail photo-min")
+                td #{img.creator.email}
+                td #{img.title}
+                td
+                  a(href=mainRoute+"/images/"+img._id , class="small-padding")
+                    span(class="glyphicon glyphicon-sunglasses blue")
+                  a(href=mainRoute+"/images/"+img._id+"/edit" ,  class="small-padding")
+                    span(class="glyphicon glyphicon-edit green")
+                  form(action=mainRoute+"/images/"+img._id+"?_method=DELETE" class="link" method="POST")
+                    button(type="submit" value="" )
+                      span(class="glyphicon glyphicon-trash red")
+               
+  script(id="image-template" type="text/x-handlebars-template")
+    tr
+      td
+        img(src="/images/{{id}}.{{extension}}" title="{{title}}" , class="thumbnail photo-min")
+      td 
+        label {{creator.email}}
+      td 
+        label {{title}}
+      td
+        span(class="glyphicon glyphicon-sunglasses blue")
+        span(class="glyphicon glyphicon-edit green")
+        span(class="glyphicon glyphicon-trash red")
+  script(src="/js/client.js")
+                    

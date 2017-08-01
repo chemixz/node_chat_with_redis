@@ -1,0 +1,39 @@
+extends ./layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Home
+		center
+			strong Bienvenido 
+				if current_user
+					span #{current_user.email}
+		
+		div(class="comment-box col-xs-12 col-md-4 no-float center-block" id="comments")
+			each comment in comments
+				div(class="comment-content")
+					strong #{comment.creator.name} dice:
+					form(action=mainRoute+"/comments/"+comment._id+"?_method=DELETE" class="link" method="POST")
+						button(type="submit" value="" )
+							span(class="glyphicon glyphicon-trash red")
+					p #{comment.comment}
+					i Fecha: #{comment.created_at}
+					br
+		div(class="commentable-box col-xs-12 col-md-5 no-float center-block")
+			form(action=mainRoute+"/comments" method="POST")
+				div(class="form-group")
+					label(class="control-lable") Comentario
+					textarea(name="comment" class="form-control" )
+				div(class="form-group")
+					input(type="submit" value="Send" class="btn btn-success")
+	
+
+	script(id="comment-template" type="text/x-handlebars-template")
+		div(class="comment-content")
+			strong {{creator.name}} dice:
+			form(action="/dashboard/comments/{{id}}?_method=DELETE" class="link" method="POST")
+				button(type="submit" value="" )
+					span(class="glyphicon glyphicon-trash red")
+			p {{comment}}
+			i Fecha: {{created_at}}
+			br
+	script(src="/js/client.js")

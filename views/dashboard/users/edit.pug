@@ -1,0 +1,29 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Usuario #{user.email}
+		center
+			div(class="col-xs-12 col-sm-8 col-md-4 center-block no-float text-left ")
+				if errors
+						div(role="alert" class="alert alert-danger alert-dismissible fade in" )
+							button(aria-label="Close" data-dismiss="alert" class="close" type="button")
+								span(aria-hidden="true") x
+							ul
+								each err in errors
+									li #{err}
+			div(class="col-xs-12 col-sm-8 col-md-4 center-block no-float text-left ")
+				form(action=mainRoute+"/users/"+user._id+"?_method=PUT ", method="POST" )
+					div(class="form-group")
+						label(for="name" ,class="label-control") Nombre
+						input(type="text", name="name" placeholder="Ingresa Nombre" , value=user.name, id="name" ,class="form-control")
+					div(class="form-group")
+						label(for="sex" ,class="label-control") Genero M o F
+						input(type="text",name="sex" placeholder="Ingresa Genero" , value=user.sex , id="sex" ,class="form-control")
+					div(class="form-group")
+						label(for="age" ,class="label-control") Edad
+						input(type="number",name="age" placeholder="Ingresa Edad", value=user.age , id="age" ,class="form-control")
+					div(class="text-center")
+						input(type="submit" ,value="Actualizar" , class="btn btn-success") 
+						a(href=mainRoute+"/users" , class="btn btn-warning") 
+							span(class="glyphicon glyphicon-chevron-left") Atras

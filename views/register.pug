@@ -1,0 +1,41 @@
+extends ./layouts/layout.pug
+block contenido
+	center
+		h1 Registro de usuario
+		center
+			div(class="col-xs-12 col-sm-8 col-md-4 center-block no-float text-left ")
+				if errors
+						div(role="alert" class="alert alert-danger alert-dismissible fade in" )
+							button(aria-label="Close" data-dismiss="alert" class="close" type="button")
+								span(aria-hidden="true") x
+							ul
+								each err in errors
+									li #{err}
+									
+			div(class="col-xs-4 text-left center-block no-float")
+				form(action="signup" , method="POST" )
+					div(class="form-group")
+						label(for="email" ,class="label-control") Email
+						input(type="text",name="email" placeholder="Ingresa Email" , id="email" ,class="form-control")
+					div
+						label(for="password") Password
+						input(type="password" , name="password" placeholder="Password", id="password", class="form-control" )
+					div
+						label(for="password_confirmation") Password Confirmation
+						input(type="password" , name="password_confirmation" placeholder="Password", id="password_confirmation", class="form-control" )
+					div(class="form-group")
+						label(for="name" ,class="label-control") Nombre
+						input(type="text",name="name" placeholder="Ingresa Nombre" , id="name" ,class="form-control")
+					div
+					div(class="form-group")
+						label(for="sex" ,class="label-control") Genero M o F
+						input(type="text",name="sex" placeholder="Ingresa Genero" , id="sex" ,class="form-control")
+					div
+					div(class="form-group")
+						label(for="age" ,class="label-control") Edad
+						input(type="number",name="age" placeholder="Ingresa Edad" , id="age" ,class="form-control")
+					div
+					div
+						input(type="submit" ,value="Registrar" , class="btn btn-success") 
+						a(href="/login" ,class="pull-right") Login
+

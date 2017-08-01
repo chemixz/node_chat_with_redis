@@ -1,0 +1,18 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Imagen 
+			br
+			center
+				div(class="col-xs-4 no-float center-block ")
+					p #{image.title}
+					img(src="/images/"+image.id+"."+image.extension, title=""+image.title , class="thumbnail photo")
+				div(class="col-xs-4 no-float center-block ")
+					if(typeof image.creator != "undefined")
+						label Uploaded by #{image.creator.email}
+					else
+						label Not Owned
+				div(class="col-xs-4 no-float center-block")
+					a(href=mainRoute+"/images" class="btn btn-warning") Atras
+					a(href=mainRoute+"/images/"+image._id+"/edit" class="btn btn-success") Editar		

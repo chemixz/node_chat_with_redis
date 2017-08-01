@@ -1,0 +1,26 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect-redis": "^3.3.0",
+    "cookie-session": "^2.0.0-beta.1",
+    "express": "^4.15.2",
+    "express-formidable": "^1.0.0",
+    "express-session": "^1.15.2",
+    "fs-extra": "^3.0.1",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.9.6",
+    "mv": "^2.1.1",
+    "pug": "^2.0.0-beta.12",
+    "redis": "^2.7.1",
+    "socket.io": "^1.7.3"
+  }
+}

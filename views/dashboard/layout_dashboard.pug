@@ -1,0 +1,25 @@
+doctype html
+html
+	head
+		title Foto Chemixz
+		meta(chartset="utf-8")
+		link(href="/css/bootstrap.min.css" rel="stylesheet")
+		link(href="/css/ownstyle.css" rel="stylesheet")
+		script(src="/socket.io/socket.io.js")
+		script(src="/js/handlebars.js")
+	body
+		nav(class="large-padding black_g ")
+			ul
+				li
+					a(href="/dashboard/users") Users
+				li
+					a(href="/dashboard/images") Imagenes
+				li
+					a(href="/dashboard") Dashboard
+				li
+					a(href="/dashboard/logout") Logout
+		div(class="container-fluid")
+			block contenido
+
+		script(src="/js/jquery.js")
+		script(src="/js/bootstrap.js")

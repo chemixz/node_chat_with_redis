@@ -1,0 +1,29 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Usuario
+		center
+			div(class="col-xs-12 col-sm-8 col-md-4 no-float  center-block")
+
+				table(class="table table=stripped")
+					thead
+						tr
+							th Nombre
+							th  #{user.name}
+						tr
+							th Email
+							th #{user.email}
+						tr
+							th Sexo
+							th #{user.sex}
+						tr
+							th Edad
+							th #{user.age}
+				a(class="btn btn-success" href=mainRoute+"/users/"+user._id +"/edit") 
+					span(class="glyphicon glyphicon-edit") Editar
+				a(href=mainRoute+"/users" , class="btn btn-warning") 
+					span(class="glyphicon glyphicon-chevron-left") Atras
+								
+								
+								

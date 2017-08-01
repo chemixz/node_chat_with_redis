@@ -1,0 +1,29 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Mis Imagenes
+
+		a(href=mainRoute+"/images/new" , class="btn btn-success") Nueva Imagen
+		center
+				table(class="table table=stripped")
+					thead
+						tr
+							th Img
+							th id
+							th Titulo
+							th Acciones
+					tbody
+						each img in images
+							tr
+								td #{img.photo}
+								td #{img._id}
+								td #{img.title}
+								td
+									a(href=mainRoute+"/images/"+img._id , class="small-padding")
+										span(class="glyphicon glyphicon-sunglasses blue")
+									a(href=mainRoute+"/images/"+img._id+"/edit" ,  class="small-padding")
+										span(class="glyphicon glyphicon-edit green")
+									form(action =mainRoute+"/images/"+img._id+"?_method=DELETE" , method="POST" class="link")
+										button(type="submit" , value="s")
+											span(class="glyphicon glyphicon-trash red")

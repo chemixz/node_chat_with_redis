@@ -1,0 +1,26 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Editar Imagen
+			center
+				div(class="col-xs-12 col-sm-8 col-md-4 center-block no-float text-left ")
+					if errors
+						div(role="alert" class="alert alert-danger alert-dismissible fade in" )
+							button(aria-label="Close" data-dismiss="alert" class="close" type="button")
+								span(aria-hidden="true") x
+							ul
+								each err in errors
+									li #{err}
+				div(class="col-xs-12 col-sm-8 col-md-4 text-left center-block no-float")
+					form(action=mainRoute+"/images/"+image.id+"?_method=PUT" enctype="multipart/form-data" method="POST")
+						div(class="form-group")
+							label(for="title" ,class="label-control") Titulo
+							input(type="text",name="title" placeholder="Ingresa Titulo" , value=image.title , id="title" ,class="form-control")
+						div(class="form-group")
+							label(for="image") Imagen
+							input(type="file" , name="photo" , value=image.photo, id="image" )
+						div(class="form-group")
+							input(type="submit" ,value="Subir imagen" , class="btn btn-primary") 
+							a(href=mainRoute+"/images" class="btn btn-warning") Atras
+

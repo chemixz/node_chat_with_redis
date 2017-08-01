@@ -1,0 +1,117 @@
+img {
+	max-width: 100%;
+}
+
+.glyphSize{
+    font-size: 20px;
+}
+.left {
+	float: left;
+}
+.right{
+	float: right;
+}
+.no-float{
+  float: none;
+ 
+}
+.no-padding{
+	padding: 0;
+}
+.no-margin{
+	margin: 0;
+}
+
+.blue{
+	color: blue;
+}
+.green{
+	color: green;
+}
+.red{
+	color: red;
+}
+.white{
+	color:white;
+}
+.orange{
+	color: orange;
+}
+.black_g{
+	background-color: #222;
+}
+
+.large-padding{
+	padding: 10px 15px;
+}
+.small-padding{
+	padding: 0 5px;
+}
+.right-margin1{
+	margin-right: 1em;
+}
+
+.big-margin-top{
+	margin-top: 100px;
+}
+
+.little-margin-top{
+	margin-top: 1.5em;
+}
+.little-padding-right{
+	padding-right: 1em;
+}
+.photo{
+	height: 250px;
+	max-width: 100%;
+	margin: 0 auto;
+	width: 250px;
+}
+.photo-min{
+	height: 100px;
+	width: 100px;
+}
+nav li{
+	display: inline-block;
+	list-style: none;
+	margin-right: 1em;
+	font-size: 1.3em;
+
+}
+
+nav{
+	text-align: right;
+}
+
+nav li a {
+	color: white;
+}
+
+nav li a:hover {
+	color: orange;
+}
+
+.custBody:nth-of-type(odd){
+	background-color: #eee;
+}
+.custBody:nth-of-type(even){
+	background-color: #ccc;
+}
+
+
+form.link {
+	display: inline-block;
+}
+
+form.link button[type="submit"]{
+	background-color: transparent;
+	border: none;
+}
+.comment-box{
+	border: 1px solid black; height: 400px; width: 500px; border-radius: 1em;
+	overflow-y: scroll;
+}
+.comment-content{
+	margin-top: 5px;
+	background-color: #eee; border-radius: 1em; padding: 10px;
+}

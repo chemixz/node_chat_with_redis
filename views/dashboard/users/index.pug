@@ -1,0 +1,31 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Usuarios
+		center
+				table(class="table table=stripped ")
+					thead
+						tr.custrHead
+							th Nombre
+							th Email
+							th Sexo
+							th Edad
+							th Acciones
+					tbody 
+						each user in users
+							tr.custBody
+								td  #{user.name} 
+								td #{user.email}
+								td #{user.sex}
+								td #{user.age}
+								td
+									a(href=mainRoute+"/users/"+user._id , class="small-padding")
+										span(class="glyphicon glyphicon-sunglasses blue")
+									a(href=mainRoute+"/users/"+user._id+"/edit", class="small-padding")
+										span(class="glyphicon glyphicon-edit green")
+									form(action =mainRoute+"/users/"+user._id+"?_method=DELETE" , method="POST" class="link")
+										button(type="submit" , value="s")
+											span(class="glyphicon glyphicon-trash red")
+
+			

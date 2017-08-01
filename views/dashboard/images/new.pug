@@ -1,0 +1,17 @@
+extends ../layout_dashboard.pug
+block contenido
+	div(class="row")
+		center
+			h1 Nueva Imagen
+			center
+				div(class="col-xs-12 col-sm-8 col-md-4 text-left center-block no-float")
+					form(action=mainRoute+"/images"  method="POST" enctype="multipart/form-data")
+						div(class="form-group")
+							label(for="title" ,class="label-control") Titulo
+							input(type="text",name="title" placeholder="Ingresa Titulo" , id="title" ,class="form-control")
+						div(class="form-group")
+							label(for="image") Imagen
+							input(type="file" , name="photo" , id="image" )
+						div(class="form-group")
+							input(type="submit" ,value="Subir imagen" , class="btn btn-primary") 
+
